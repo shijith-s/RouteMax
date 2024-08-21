@@ -1,10 +1,23 @@
 import RoutesGrid from "components/RoutesGrid";
 import RoutesMap from "components/RoutesMap";
 import StopsGrid from "components/StopsGrid";
-import React from "react";
+import { extractRoutesData, extractStopsData } from "data/DataManager";
+import React, { useEffect } from "react";
 import "styles/routesView.css";
 
 function RoutesView() {
+  useEffect(() => {
+    populateData();
+  }, []);
+
+  const populateData = async () => {
+    let routesData = await extractRoutesData();
+    let stopsData = await extractStopsData();
+
+    console.log(routesData);
+    console.log(stopsData);
+  };
+
   return (
     <div className="routesview">
       <div className="routesview_item1">
