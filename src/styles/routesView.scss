@@ -1,0 +1,32 @@
+@import "./variables";
+
+.routesview {
+    width: 100%;
+    height: 100vh;
+    background-color: #ddd;
+    display: grid;
+    grid-template-areas:
+        "item1 item2"
+        "item1 item2"
+        "item3 item3";
+    gap: 10px;
+    padding: 10px;
+    .routesview_item1 {
+        grid-area: item1;
+    }
+    .routesview_item2 {
+        grid-area: item2;
+    }
+    .routesview_item3 {
+        grid-area: item3;
+    }
+
+    .routesview_item1,
+    .routesview_item2,
+    .routesview_item3 {
+        border-radius: $border_radius;
+        padding: $padding;
+        overflow: hidden;
+        background-color: white;
+    }
+}
