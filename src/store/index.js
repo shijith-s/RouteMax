@@ -10,9 +10,9 @@ class Store {
     if (!this.stops?.length || !this.currRoute) return [];
 
     let filteredStops = this.stops.filter(
-      (stop) => this.currRoute && stop["Route"] == this.currRoute["Route"]
+      (stop) => stop["Route"] == this.currRoute["Route"]
     );
-    filteredStops.sort(a, (b) => (a["Seq"] > b["Seq"] ? 1 : -1));
+    filteredStops.sort((a, b) => (a["Seq"] > b["Seq"] ? 1 : -1));
     return filteredStops;
   }
 
@@ -36,7 +36,7 @@ decorate(Store, {
   routes: observable,
   stops: observable,
   currRoute: observable,
-  //   currStops: computed,
+  currStops: computed,
   populateRouteAndStopsData: action,
 });
 
