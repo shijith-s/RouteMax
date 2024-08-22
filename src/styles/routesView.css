@@ -26,13 +26,27 @@
 }
 
 .routes_grid,
-.stops_grid {
+.stops_grid,
+.routes_map {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 .routes_grid :nth-child(2),
-.stops_grid :nth-child(2) {
+.stops_grid :nth-child(2),
+.routes_map :nth-child(2) {
   flex: 1;
+}
+
+.maps_container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  position: relative; /* Ensure it positions correctly within the parent */
+}
+.maps_container #map {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensure it fills the parent container */
 }/*# sourceMappingURL=routesView.css.map */

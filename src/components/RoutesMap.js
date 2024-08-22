@@ -1,11 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
+import CustomMap from "./CustomMap";
+import { observer } from "mobx-react";
+import store from "store";
 
-function RoutesMap() {
-  return (
-    <div>
-      <h4>Routes Map</h4>
-    </div>
-  );
+class RoutesMap extends Component {
+  render() {
+    return (
+      <div className="routes_map">
+        <h4>Routes Map</h4>
+        <CustomMap stops={store.currStops} />
+      </div>
+    );
+  }
 }
 
-export default RoutesMap;
+export default observer(RoutesMap);
