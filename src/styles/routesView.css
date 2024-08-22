@@ -23,4 +23,16 @@
   padding: 10px;
   overflow: hidden;
   background-color: white;
+}
+
+.routes_grid,
+.stops_grid {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.routes_grid :nth-child(2),
+.stops_grid :nth-child(2) {
+  flex: 1;
 }/*# sourceMappingURL=routesView.css.map */

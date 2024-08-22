@@ -30,3 +30,14 @@
         background-color: white;
     }
 }
+
+.routes_grid,
+.stops_grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    :nth-child(2) {
+        flex: 1;
+    }
+}

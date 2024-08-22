@@ -3,7 +3,7 @@ import React from "react";
 function RoutesMap() {
   return (
     <div>
-      <h2>This is the routes map component</h2>
+      <h4>Routes Map</h4>
     </div>
   );
 }

@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import CustomGrid from "./CustomGrid";
+import "styles/routesView.css";
 
 export default class RoutesGrid extends Component {
   render() {
     return (
-      <div>
-        <h2>This is the routesGrid component</h2>
+      <div className="routes_grid">
+        <div>
+          <h4>Routes</h4>
+        </div>
+        <CustomGrid />
+        <div>5 Routes</div>
       </div>
     );
   }
