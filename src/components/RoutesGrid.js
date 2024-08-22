@@ -3,12 +3,13 @@ import CustomGrid from "./CustomGrid";
 import "styles/routesView.css";
 import { observer } from "mobx-react";
 import store from "store";
+import StatusRenderer from "./StatusRenderer";
 
 class RoutesGrid extends Component {
   render() {
     const colDefs = [
       { field: "Route" },
-      { field: "Status" },
+      { field: "Status", cellRenderer: StatusRenderer },
       { field: "Route Type" },
       { field: "Ttl Stops" },
       { field: "Ttl Bills" },
