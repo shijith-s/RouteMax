@@ -1,22 +1,18 @@
 import RoutesGrid from "components/RoutesGrid";
 import RoutesMap from "components/RoutesMap";
 import StopsGrid from "components/StopsGrid";
-import { extractRoutesData, extractStopsData } from "data/DataManager";
 import React, { useEffect } from "react";
 import "styles/routesView.css";
+import store from "store";
+import { observer } from "mobx-react";
 
-function RoutesView() {
+const RoutesView = () => {
   useEffect(() => {
-    populateData();
+    console.log("populating data");
+    store.populateRouteAndStopsData();
   }, []);
 
-  const populateData = async () => {
-    let routesData = await extractRoutesData();
-    let stopsData = await extractStopsData();
-
-    console.log(routesData);
-    console.log(stopsData);
-  };
+  console.log("store is : ", store);
 
   return (
     <div className="routesview">
@@ -31,6 +27,6 @@ function RoutesView() {
       </div>
     </div>
   );
-}
+};
 
 export default RoutesView;

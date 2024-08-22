@@ -1,0 +1,44 @@
+import { extractRoutesData, extractStopsData } from "data/DataManager";
+import { observable, action, decorate, computed } from "mobx";
+
+class Store {
+  routes = [];
+  stops = [];
+  currRoute = null;
+
+  get currStops() {
+    if (!this.stops?.length || !this.currRoute) return [];
+
+    let filteredStops = this.stops.filter(
+      (stop) => this.currRoute && stop["Route"] == this.currRoute["Route"]
+    );
+    filteredStops.sort(a, (b) => (a["Seq"] > b["Seq"] ? 1 : -1));
+    return filteredStops;
+  }
+
+  //   Actions goes here
+  async populateRouteAndStopsData() {
+    let routesData = await extractRoutesData();
+    let stopsData = await extractStopsData();
+
+    if (routesData?.length) {
+      this.routes = routesData;
+      this.currRoute = routesData[0];
+    }
+
+    if (stopsData?.length) {
+      this.stops = stopsData;
+    }
+  }
+}
+
+decorate(Store, {
+  routes: observable,
+  stops: observable,
+  currRoute: observable,
+  //   currStops: computed,
+  populateRouteAndStopsData: action,
+});
+
+const store = new Store();
+export default store;
