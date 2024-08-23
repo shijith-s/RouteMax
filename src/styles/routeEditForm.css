@@ -3,7 +3,7 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 .route_edit_form > :first-child {
   display: flex;
