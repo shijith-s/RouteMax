@@ -5,6 +5,7 @@ class Store {
   routes = [];
   stops = [];
   currRoute = null;
+  currStop = null;
 
   get currStops() {
     if (!this.stops?.length || !this.currRoute) return [];
@@ -36,6 +37,7 @@ decorate(Store, {
   routes: observable,
   stops: observable,
   currRoute: observable,
+  currStop: observable,
   currStops: computed,
   populateRouteAndStopsData: action,
 });

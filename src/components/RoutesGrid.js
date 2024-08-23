@@ -5,11 +5,16 @@ import { observer } from "mobx-react";
 import store from "store";
 import StatusRenderer from "./StatusRenderer";
 import RouteEditModal from "./RouteEditModal";
+import SearchInput from "./SearchInput";
 
 class RoutesGrid extends Component {
   constructor(props) {
     super(props);
-    this.state = { editModalOpen: false, currRowData: null };
+    this.state = {
+      editModalOpen: false,
+      currRowData: null,
+      quickFilterText: "",
+    };
   }
 
   editRowCells = (params) => {
@@ -24,8 +29,15 @@ class RoutesGrid extends Component {
     store.currRoute = data;
   };
 
+  handleQuickFilterTextChange = (val) => {
+    this.setState((state) => ({
+      ...state,
+      quickFilterText: val,
+    }));
+  };
+
   colDefs = [
-    { field: "Route" },
+    { field: "Route", filter: true },
     {
       field: "Status",
       cellRenderer: StatusRenderer,
@@ -46,12 +58,17 @@ class RoutesGrid extends Component {
       <div className="routes_grid">
         <div>
           <h4>Routes</h4>
+          <SearchInput
+            value={this.state.quickFilterText}
+            onChange={this.handleQuickFilterTextChange}
+          />
         </div>
         <CustomGrid
           rowData={store.routes}
           colDefs={this.colDefs}
           onRowClicked={this.onRowClicked}
           onRowDoubleClicked={this.editRowCells}
+          quickFilterText={this.state.quickFilterText}
         />
         <div>{store.routes?.length || 0} Routes</div>
         <RouteEditModal

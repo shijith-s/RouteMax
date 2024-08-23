@@ -3,7 +3,14 @@ import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
-function CustomGrid({ rowData, colDefs, onRowClicked, onRowDoubleClicked }) {
+function CustomGrid({
+  rowData,
+  colDefs,
+  onRowClicked,
+  onRowDoubleClicked,
+  rowSelection,
+  quickFilterText,
+}) {
   return (
     <div
       className="ag-theme-quartz"
@@ -16,6 +23,8 @@ function CustomGrid({ rowData, colDefs, onRowClicked, onRowDoubleClicked }) {
         rowData={rowData}
         columnDefs={colDefs}
         style={{ width: 500, height: 200 }}
+        rowSelection={rowSelection || "single"}
+        quickFilterText={quickFilterText}
       />
     </div>
   );
