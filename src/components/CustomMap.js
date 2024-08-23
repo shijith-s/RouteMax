@@ -26,11 +26,12 @@ function CustomMap({ stops }) {
     if (currRoute) currRoute.remove();
     const myRoute = new TrimbleMaps.Route({
       // routeId: "myRoute",
+      routeColor: "#000000",
+      routePathOpacity: 0.8,
       stops: stops.map(
         (stop) => new TrimbleMaps.LngLat(stop["Longitude"], stop["Latitude"])
       ),
     });
-
     myRoute.addTo(map);
     setCurrRoute(myRoute);
   }, [map, stops]);
