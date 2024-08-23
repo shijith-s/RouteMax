@@ -31,7 +31,6 @@ function CustomMap({ stops }) {
       ),
     });
 
-    console.log(myRoute);
     myRoute.addTo(map);
     setCurrRoute(myRoute);
   }, [map, stops]);

@@ -1,0 +1,22 @@
+.route_edit_form {
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.route_edit_form > :first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: scroll;
+  flex: 1;
+}
+.route_edit_form > :nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.route_edit_form_radio {
+  display: flex;
+}/*# sourceMappingURL=routeEditForm.css.map */

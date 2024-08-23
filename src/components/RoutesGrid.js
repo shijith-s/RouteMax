@@ -4,29 +4,44 @@ import "styles/routesView.css";
 import { observer } from "mobx-react";
 import store from "store";
 import StatusRenderer from "./StatusRenderer";
+import RouteEditModal from "./RouteEditModal";
 
 class RoutesGrid extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { editModalOpen: false, currRowData: null };
+  }
+
+  editRowCells = (params) => {
+    this.setState({ editModalOpen: true, currRowData: params.data });
+  };
+  handleClose = () => {
+    this.setState({ editModalOpen: false, currRowData: null });
+  };
+
+  onRowClicked = (props) => {
+    let data = { ...props.data };
+    store.currRoute = data;
+  };
+
+  colDefs = [
+    { field: "Route" },
+    {
+      field: "Status",
+      cellRenderer: StatusRenderer,
+    },
+    { field: "Route Type" },
+    { field: "Ttl Stops" },
+    { field: "Ttl Bills" },
+    { field: "PSE" },
+    { field: "Weight" },
+    { field: "LG" },
+    { field: "APT" },
+    { field: "Start Time" },
+    { field: "Comments" },
+  ];
+
   render() {
-    const colDefs = [
-      { field: "Route" },
-      { field: "Status", cellRenderer: StatusRenderer },
-      { field: "Route Type" },
-      { field: "Ttl Stops" },
-      { field: "Ttl Bills" },
-      { field: "PSE" },
-      { field: "Weight" },
-      { field: "LG" },
-      { field: "APT" },
-      { field: "Start Time" },
-      { field: "Comments" },
-    ];
-
-    const onRowClicked = (props) => {
-      let data = { ...props.data };
-      console.log(data);
-      store.currRoute = data;
-    };
-
     return (
       <div className="routes_grid">
         <div>
@@ -34,10 +49,16 @@ class RoutesGrid extends Component {
         </div>
         <CustomGrid
           rowData={store.routes}
-          colDefs={colDefs}
-          onRowClicked={onRowClicked}
+          colDefs={this.colDefs}
+          onRowClicked={this.onRowClicked}
+          onRowDoubleClicked={this.editRowCells}
         />
         <div>{store.routes?.length || 0} Routes</div>
+        <RouteEditModal
+          open={this.state.editModalOpen}
+          handleClose={this.handleClose}
+          currData={this.state.currRowData}
+        />
       </div>
     );
   }
