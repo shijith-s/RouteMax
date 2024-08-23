@@ -8,7 +8,7 @@ function CustomMap({ stops }) {
 
   useEffect(() => {
     // Initialize the map
-    TrimbleMaps.APIKey = "0D8BA43647605743A5FB4B225664EF0F";
+    TrimbleMaps.APIKey = process.env.REACT_APP_MAPS_API_KEY;
     const tmap = new TrimbleMaps.Map({
       container: "map", // Container ID
       style: TrimbleMaps.Common.Style.TRANSPORTATION, // Map style URL
