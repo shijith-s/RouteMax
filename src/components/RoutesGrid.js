@@ -7,6 +7,7 @@ import StatusRenderer from "./StatusRenderer";
 import RouteEditModal from "./RouteEditModal";
 import SearchInput from "./SearchInput";
 import SetFilter from "./customFilters/SetFilter";
+import TimeFilter from "./customFilters/TimeFilter";
 
 class RoutesGrid extends Component {
   constructor(props) {
@@ -51,7 +52,7 @@ class RoutesGrid extends Component {
     { field: "Weight" },
     { field: "LG" },
     { field: "APT" },
-    { field: "Start Time" },
+    { field: "Start Time", filter: TimeFilter },
     { field: "Comments" },
   ];
 
