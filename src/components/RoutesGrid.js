@@ -6,6 +6,7 @@ import store from "store";
 import StatusRenderer from "./StatusRenderer";
 import RouteEditModal from "./RouteEditModal";
 import SearchInput from "./SearchInput";
+import SetFilter from "./customFilters/SetFilter";
 
 class RoutesGrid extends Component {
   constructor(props) {
@@ -41,8 +42,9 @@ class RoutesGrid extends Component {
     {
       field: "Status",
       cellRenderer: StatusRenderer,
+      filter: SetFilter,
     },
-    { field: "Route Type" },
+    { field: "Route Type", filter: SetFilter },
     { field: "Ttl Stops" },
     { field: "Ttl Bills" },
     { field: "PSE" },

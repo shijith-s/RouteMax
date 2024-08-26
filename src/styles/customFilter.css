@@ -1,0 +1,14 @@
+.container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container > button {
+  background-color: #ddd;
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=customFilter.css.map */
