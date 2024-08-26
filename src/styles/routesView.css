@@ -41,9 +41,9 @@
 .routes_map > :nth-child(2) {
   flex: 1;
 }
-
 .routes_grid > :first-child,
-.stops_grid > :first-child {
+.stops_grid > :first-child,
+.routes_map > :first-child {
   display: flex;
   justify-content: space-between;
 }

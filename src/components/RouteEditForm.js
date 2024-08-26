@@ -92,12 +92,12 @@ class RouteEditForm extends Component {
             >
               <FormControlLabel
                 value="Locked"
-                control={<Radio />}
+                control={<Radio color="primary" />}
                 label="Locked"
               />
               <FormControlLabel
                 value="Unlocked"
-                control={<Radio />}
+                control={<Radio color="primary" />}
                 label="Unlocked"
               />
             </RadioGroup>
@@ -116,7 +116,7 @@ class RouteEditForm extends Component {
         </div>
         <div>
           <Button onClick={this.handleCancel}>Cancel</Button>
-          <Button color="primary" onClick={this.handleSave}>
+          <Button variant="contained" color="primary" onClick={this.handleSave}>
             Save
           </Button>
         </div>

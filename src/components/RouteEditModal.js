@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import CustomModal from "./CustomModal";
 import RouteEditForm from "./RouteEditForm";
-import color from "@material-ui/core/colors/amber";
+import { MuiThemeProvider } from "@material-ui/core";
+import getTheme from "customTheme";
+import { colorModeContext } from "App";
 
 function RouteEditModal({ open, handleClose, currData }) {
+  let { mode } = useContext(colorModeContext);
   return (
-    <CustomModal
-      open={open}
-      title={"Edit Route Data"}
-      handleClose={handleClose}
-      // actions={[
-      //   { title: "Cancel", onClick: handleClose },
-      //   { title: "Ok", onClick: handleClose, color: "primary" },
-      // ]}
-    >
-      <RouteEditForm currData={currData} handleClose={handleClose} />
-    </CustomModal>
+    <MuiThemeProvider theme={() => getTheme(mode)}>
+      <CustomModal
+        open={open}
+        title={"Edit Route Data"}
+        handleClose={handleClose}
+        // actions={[
+        //   { title: "Cancel", onClick: handleClose },
+        //   { title: "Ok", onClick: handleClose, color: "primary" },
+        // ]}
+      >
+        <RouteEditForm currData={currData} handleClose={handleClose} />
+      </CustomModal>
+    </MuiThemeProvider>
   );
 }
 

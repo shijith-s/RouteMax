@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Paper,
 } from "@material-ui/core";
 
 function CustomModal({ children, open, title, handleClose, actions }) {
@@ -16,26 +17,28 @@ function CustomModal({ children, open, title, handleClose, actions }) {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {children}
-        </DialogContentText>
-      </DialogContent>
+      <Paper>
+        <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            {children}
+          </DialogContentText>
+        </DialogContent>
 
-      {actions?.length && (
-        <DialogActions>
-          {actions.map((action) => (
-            <Button
-              onClick={action.onClick}
-              color={action.color}
-              autoFocus={action.autoFocus}
-            >
-              {action.title}
-            </Button>
-          ))}
-        </DialogActions>
-      )}
+        {actions?.length && (
+          <DialogActions>
+            {actions.map((action) => (
+              <Button
+                onClick={action.onClick}
+                color={action.color}
+                autoFocus={action.autoFocus}
+              >
+                {action.title}
+              </Button>
+            ))}
+          </DialogActions>
+        )}
+      </Paper>
     </Dialog>
   );
 }
