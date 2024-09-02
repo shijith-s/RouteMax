@@ -59,8 +59,7 @@ class RouteEditForm extends Component {
       return stop;
     });
 
-    store.routes = routes;
-    store.stops = stops;
+    store.updateRouteAndStopsData(routes, stops);
 
     this.props.handleClose();
   };

@@ -17,7 +17,7 @@ class Store {
   }
 
   //   Actions goes here
-  populateRouteAndStopsData(routesData, stopsData) {
+  updateRouteAndStopsData(routesData, stopsData) {
     if (routesData?.length) {
       this.routes = routesData;
       this.currRoute = routesData[0];
@@ -27,6 +27,14 @@ class Store {
       this.stops = stopsData;
     }
   }
+
+  updateCurrRoute(route) {
+    store.currRoute = route;
+  }
+
+  updateCurrStop(stop) {
+    store.currStop = stop;
+  }
 }
 
 decorate(Store, {
@@ -35,7 +43,9 @@ decorate(Store, {
   currRoute: observable,
   currStop: observable,
   currStops: computed,
-  populateRouteAndStopsData: action,
+  updateRouteAndStopsData: action,
+  updateCurrRoute: action,
+  updateCurrStop: action,
 });
 
 const store = new Store();

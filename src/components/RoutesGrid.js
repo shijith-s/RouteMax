@@ -28,7 +28,7 @@ class RoutesGrid extends Component {
 
   onRowClicked = (props) => {
     let data = { ...props.data };
-    store.currRoute = data;
+    store.updateCurrRoute(data);
   };
 
   handleQuickFilterTextChange = (val) => {

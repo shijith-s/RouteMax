@@ -14,7 +14,7 @@ class StopsGrid extends Component {
 
   onRowClicked = (props) => {
     let data = { ...props.data };
-    store.currStop = data;
+    store.updateCurrStop(data);
   };
 
   handleQuickFilterTextChange = (val) => {

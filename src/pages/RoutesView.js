@@ -16,7 +16,7 @@ class RoutesView extends Component {
   populateData = async () => {
     let routesData = await extractRoutesData();
     let stopsData = await extractStopsData();
-    store.populateRouteAndStopsData(routesData, stopsData);
+    store.updateRouteAndStopsData(routesData, stopsData);
   };
 
   render() {
