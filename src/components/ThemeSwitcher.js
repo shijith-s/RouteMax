@@ -2,10 +2,10 @@ import { FormControlLabel, Switch } from "@material-ui/core";
 import React, { useContext } from "react";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import Brightness7Icon from "@material-ui/icons/Brightness7";
-import { colorModeContext } from "App";
+import { ColorModeContext } from "App";
 
 function ThemeSwitcher() {
-  let { mode, toggleMode } = useContext(colorModeContext);
+  let { mode, toggleMode } = useContext(ColorModeContext);
 
   return (
     <div>

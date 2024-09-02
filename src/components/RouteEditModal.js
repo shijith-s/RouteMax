@@ -3,10 +3,10 @@ import CustomModal from "./CustomModal";
 import RouteEditForm from "./RouteEditForm";
 import { MuiThemeProvider } from "@material-ui/core";
 import getTheme from "customTheme";
-import { colorModeContext } from "App";
+import { ColorModeContext } from "App";
 
 function RouteEditModal({ open, handleClose, currData }) {
-  let { mode } = useContext(colorModeContext);
+  let { mode } = useContext(ColorModeContext);
   return (
     <MuiThemeProvider theme={() => getTheme(mode)}>
       <CustomModal

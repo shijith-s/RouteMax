@@ -8,16 +8,6 @@ import store from "store";
 import React, { Component } from "react";
 
 class RoutesView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      routes: [],
-      stops: [],
-      currRoute: null,
-      currStops: [],
-    };
-  }
-
   componentDidMount() {
     store.populateRouteAndStopsData();
   }
