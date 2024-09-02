@@ -33,7 +33,6 @@ class RoutesGrid extends Component {
 
   handleQuickFilterTextChange = (val) => {
     this.setState((state) => ({
-      ...state,
       quickFilterText: val,
     }));
   };
