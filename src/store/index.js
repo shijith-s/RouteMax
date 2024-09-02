@@ -1,4 +1,3 @@
-import { extractRoutesData, extractStopsData } from "data/DataManager";
 import { observable, action, decorate, computed } from "mobx";
 
 class Store {
@@ -18,10 +17,7 @@ class Store {
   }
 
   //   Actions goes here
-  async populateRouteAndStopsData() {
-    let routesData = await extractRoutesData();
-    let stopsData = await extractStopsData();
-
+  populateRouteAndStopsData(routesData, stopsData) {
     if (routesData?.length) {
       this.routes = routesData;
       this.currRoute = routesData[0];

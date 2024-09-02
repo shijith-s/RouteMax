@@ -6,11 +6,18 @@ import { observer } from "mobx-react";
 import store from "store";
 
 import React, { Component } from "react";
+import { extractRoutesData, extractStopsData } from "data/DataManager";
 
 class RoutesView extends Component {
   componentDidMount() {
-    store.populateRouteAndStopsData();
+    this.populateData();
   }
+
+  populateData = async () => {
+    let routesData = await extractRoutesData();
+    let stopsData = await extractStopsData();
+    store.populateRouteAndStopsData(routesData, stopsData);
+  };
 
   render() {
     return (
