@@ -17,9 +17,9 @@ class RouteEditForm extends Component {
     super(props);
     let data = props.currData;
     this.state = {
-      Route: data["Route"] || "",
-      Status: data["Status"] || "",
-      ["Route Type"]:
+      route: data["Route"] || "",
+      status: data["Status"] || "",
+      routeType:
         {
           value: data["Route Type"],
           label: data["Route Type"],
@@ -40,21 +40,21 @@ class RouteEditForm extends Component {
   };
   handleSave = () => {
     let data = this.state;
-    if (!data["Route"] || !data["Status"] || !data["Route Type"]) {
+    if (!data.route || !data.status || !data.routeType) {
       alert("Please input all fields");
       return;
     }
     let routes = store.routes.map((route) => {
-      if (route["Route"] == data["prevRoute"]) {
-        route["Route"] = data["Route"];
-        route["Status"] = data["Status"];
-        route["Route Type"] = data["Route Type"].value;
+      if (route["Route"] == data.prevRoute) {
+        route["Route"] = data.route;
+        route["Status"] = data.status;
+        route["Route Type"] = data.routeType.value;
       }
       return route;
     });
     let stops = store.stops.map((stop) => {
-      if (stop["Route"] == data["prevRoute"]) {
-        stop["Route"] = data["Route"];
+      if (stop["Route"] == data.prevRoute) {
+        stop["Route"] = data.route;
       }
       return stop;
     });
@@ -76,8 +76,8 @@ class RouteEditForm extends Component {
           <TextField
             id="routeNameInput"
             label="Route Name"
-            value={this.state["Route"]}
-            onChange={(e) => this.handleChange("Route", e.target.value)}
+            value={this.state.route}
+            onChange={(e) => this.handleChange("route", e.target.value)}
           />
           <div>
             <FormLabel component="legend">Status</FormLabel>
@@ -86,8 +86,8 @@ class RouteEditForm extends Component {
               name="Status"
               className="route_edit_form_radio"
               row
-              value={this.state["Status"]}
-              onChange={(e) => this.handleChange("Status", e.target.value)}
+              value={this.state.status}
+              onChange={(e) => this.handleChange("status", e.target.value)}
             >
               <FormControlLabel
                 value="Locked"
@@ -108,8 +108,8 @@ class RouteEditForm extends Component {
             <Select
               options={this.options}
               label="Route Type"
-              value={this.state["Route Type"]}
-              onChange={(val) => this.handleChange("Route Type", val)}
+              value={this.state.routeType}
+              onChange={(val) => this.handleChange("routeType", val)}
             />
           </div>
         </div>
