@@ -1,37 +1,43 @@
-import { amber, deepOrange, grey } from "@material-ui/core/colors";
 import { createMuiTheme } from "@material-ui/core/styles";
 
-// const lightModePalette = {
-//   // palette values for light mode
-//   primary: amber,
-//   divider: amber[200],
-//   text: {
-//     primary: grey[900],
-//     secondary: grey[800],
-//   },
-// };
-
-// const darkModePalette = {
-//   // palette values for dark mode
-//   primary: deepOrange,
-//   divider: deepOrange[700],
-//   background: {
-//     default: "#121212",
-//     paper: "#121212",
-//   },
-//   text: {
-//     primary: "#fff",
-//     secondary: grey[500],
-//   },
-// };
-
-const getTheme = (mode) => {
-  return createMuiTheme({
-    palette: {
-      type: mode,
-      // ...darkModePalette,
+export const lightTheme = createMuiTheme({
+  // palette values for light mode
+  palette: {
+    primary: {
+      main: "#05A792",
+      contrastText: "#000000",
     },
-  });
-};
+    secondary: {
+      main: "#000000",
+    },
+    background: {
+      paper: "#FFFFFF",
+      default: "#fafafa",
+    },
+    text: {
+      primary: "#000000",
+    },
+    divider: "#05A792",
+  },
+});
 
-export default getTheme;
+export const darkTheme = createMuiTheme({
+  // palette values for dark mode
+  palette: {
+    primary: {
+      main: "#05A792",
+      contrastText: "#FFFFFF",
+    },
+    secondary: {
+      main: "#FFFFFF",
+    },
+    background: {
+      paper: "#424242",
+      default: "#fafafa",
+    },
+    text: {
+      primary: "#FFFFFF",
+    },
+    divider: "#05A792",
+  },
+});

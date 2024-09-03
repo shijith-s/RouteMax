@@ -5,6 +5,7 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  Typography,
 } from "@material-ui/core";
 import { observer } from "mobx-react";
 import React, { Component } from "react";
@@ -27,7 +28,7 @@ class RouteEditForm extends Component {
       prevRoute: data["Route"],
     };
   }
-  
+
   handleChange = (field, value) => {
     this.setState((state) => ({
       ...state,
@@ -77,7 +78,9 @@ class RouteEditForm extends Component {
             onChange={(e) => this.handleChange("route", e.target.value)}
           />
           <div>
-            <FormLabel component="legend">Status</FormLabel>
+            <FormLabel component="legend">
+              <Typography>Status</Typography>
+            </FormLabel>
             <RadioGroup
               aria-label="Status"
               name="Status"
@@ -100,7 +103,7 @@ class RouteEditForm extends Component {
           </div>
           <div>
             <FormLabel component="legend" style={{ marginBottom: "10px" }}>
-              Route Type
+              <Typography>Route Type</Typography>
             </FormLabel>
             <Select
               options={this.options}
