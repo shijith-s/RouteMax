@@ -27,7 +27,7 @@ class RouteEditForm extends Component {
       prevRoute: data["Route"],
     };
   }
-
+  
   handleChange = (field, value) => {
     this.setState((state) => ({
       ...state,
@@ -35,9 +35,6 @@ class RouteEditForm extends Component {
     }));
   };
 
-  handleCancel = () => {
-    this.props.handleClose();
-  };
   handleSave = () => {
     let data = this.state;
     if (!data.route || !data.status || !data.routeType) {
@@ -114,7 +111,7 @@ class RouteEditForm extends Component {
           </div>
         </div>
         <div>
-          <Button onClick={this.handleCancel}>Cancel</Button>
+          <Button onClick={this.props.handleClose}>Cancel</Button>
           <Button variant="contained" color="primary" onClick={this.handleSave}>
             Save
           </Button>
