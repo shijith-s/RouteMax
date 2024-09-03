@@ -18,7 +18,9 @@ function CustomMap({ stops }) {
 
     // Add navigation controls to the map
     tmap.addControl(new TrimbleMaps.NavigationControl());
-    setMap(tmap);
+    tmap.on("load", () => {
+      setMap(tmap);
+    });
   }, []);
 
   useEffect(() => {
