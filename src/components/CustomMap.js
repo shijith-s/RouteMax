@@ -22,10 +22,16 @@ function CustomMap({ stops }) {
   }, []);
 
   useEffect(() => {
-    if (!map || !stops?.length) return;
+    if (!map) return;
+    if (!stops?.length) {
+      currRoute?.remove();
+      setCurrRoute(null);
+      return;
+    }
+    if (currRoute && currRoute._routeId == stops[0]["Route"]) return;
     if (currRoute) currRoute.remove();
     const myRoute = new TrimbleMaps.Route({
-      // routeId: "myRoute",
+      routeId: stops[0]["Route"],
       routeColor: "#000000",
       routePathOpacity: 0.8,
       stops: stops.map(

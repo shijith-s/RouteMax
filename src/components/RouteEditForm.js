@@ -29,7 +29,8 @@ class RouteEditForm extends Component {
     };
   }
 
-  handleChange = (field, value) => {
+  handleChange = (field) => (e) => {
+    let value = field == "routeType" ? e : e.target.value;
     this.setState((state) => ({
       ...state,
       [field]: value,
@@ -75,7 +76,7 @@ class RouteEditForm extends Component {
             id="routeNameInput"
             label="Route Name"
             value={this.state.route}
-            onChange={(e) => this.handleChange("route", e.target.value)}
+            onChange={this.handleChange("route")}
           />
           <div>
             <FormLabel component="legend">
@@ -87,7 +88,7 @@ class RouteEditForm extends Component {
               className="route_edit_form_radio"
               row
               value={this.state.status}
-              onChange={(e) => this.handleChange("status", e.target.value)}
+              onChange={this.handleChange("status")}
             >
               <FormControlLabel
                 value="Locked"
@@ -109,7 +110,7 @@ class RouteEditForm extends Component {
               options={this.options}
               label="Route Type"
               value={this.state.routeType}
-              onChange={(val) => this.handleChange("routeType", val)}
+              onChange={this.handleChange("routeType")}
             />
           </div>
         </div>
